@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      html {
+        background: center/contain no-repeat;
+      }
+      body {
+        box-sizing: border-box;
+        background: center/contain no-repeat padding-box content-box;
+      }
+    </style>
+    <script>
+      var size = 50;
+      var cover = 0;
+      var backgroundColor = "#fff";
+      var baseImage = "";
+      var layerImage = "";
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      document.body.style.padding = `${Math.max(width, height)}px`;
+      function livelyPropertyListener(name, val) {
+        if (name == "size") {
+          size = val;
+        } else if (name == "backgroundColor") {
+          backgroundColor = val;
+          document.documentElement.style.backgroundColor = backgroundColor;
+          document.body.style.backgroundColor =
+            cover == 1 ? "" : backgroundColor;
+        } else if (name == "baseImage") {
+          baseImage = val;
+          document.documentElement.style.backgroundImage = `url(${baseImage.split("\\").join("/")})`;
+        } else if (name == "layerImage") {
+          layerImage = val;
+          document.body.style.backgroundImage = `url(${layerImage.split("\\").join("/")})`;
+        } else if (name == "cover") {
+          cover = val;
+          document.body.style.backgroundColor =
+            cover == 1 ? "" : backgroundColor;
+        }
+      }
+      window.onmousemove = function (event) {
+        document.body.style.paddingTop = `${event.y - size}px`;
+        document.body.style.paddingBottom = `${height - event.y - size}px`;
+        document.body.style.paddingLeft = `${event.x - size}px`;
+        document.body.style.paddingRight = `${width - event.x - size}px`;
+      };
+    </script>
+  </body>
+</html>
