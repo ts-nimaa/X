@@ -1,0 +1,38 @@
+{
+  "size": {
+    "max": 100,
+    "min": 0,
+    "tick": 25,
+    "text": "尺寸 Size",
+    "type": "slider",
+    "value": 50
+  },
+  "backgroundColor": {
+    "text": "背景颜色 Background Color",
+    "type": "color",
+    "value": "#ffffff"
+  },
+  "baseImage": {
+    "type": "folderDropdown",
+    "value": "",
+    "text": "基本图像 Base Image",
+    "filter": "*.jpg|*.png",
+    "folder": "resource"
+  },
+  "layerImage": {
+    "type": "folderDropdown",
+    "value": "",
+    "text": "遮罩图像 Layer Image",
+    "filter": "*.jpg|*.png",
+    "folder": "resource"
+  },
+  "cover": {
+    "type": "dropdown",
+    "value": 0,
+    "text": "覆盖 Cover",
+    "items": [
+      "完全覆盖 All Cover",
+      "部分覆盖 Part Cover"
+    ]
+  }
+}
